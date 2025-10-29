@@ -31,40 +31,89 @@ $('.testimonials-slider').slick({
 
 
 const heading = document.getElementById("animated-heading");
-const textArray = ["Engineering Precision.", "Environmental Integrity.", "Innovative Solutions."]; // multiple phrases
+
+const textArray = [
+  // Core Services (unchanged)
+  `<span class="color-primary">Trusted</span>&nbsp;&nbsp;<span class="color-accent">Training</span><br><span class="color-accent">Reliable</span>&nbsp;&nbsp;<span class="color-primary">Support</span>`,
+
+  // Certifications
+  `<span class="color-primary">Certified</span>&nbsp;&nbsp;<span class="color-accent">Quality</span><br><span class="color-accent">Registered</span>&nbsp;&nbsp;<span class="color-primary">Excellence</span>`,
+
+  // Registration Focus
+  `<span class="color-primary">Accredited</span>&nbsp;&nbsp;<span class="color-accent">Approved</span><br><span class="color-accent">Verified</span>&nbsp;&nbsp;<span class="color-primary">Professionals</span>`,
+  // Team & Expertise
+  `<span class="color-primary">Expert</span>&nbsp;&nbsp;<span class="color-accent">Team</span><br><span class="color-accent">Certified</span>&nbsp;&nbsp;<span class="color-primary">Professionals</span>`,
+
+  // Standards & Compliance
+  `<span class="color-primary">Global</span>&nbsp;&nbsp;<span class="color-accent">Standards</span><br><span class="color-accent">Quality</span>&nbsp;&nbsp;<span class="color-primary">Compliance</span>`
+];
+
 let textIndex = 0;
 
 function animateText() {
-  heading.innerHTML = ""; // clear
-  const text = textArray[textIndex];
-  
-  // split text into characters
-  [...text].forEach((char, i) => {
-    const span = document.createElement("span");
-    span.textContent = char;
-    span.classList.add("char");
-    // alternate direction up/down
-    if (i % 2 !== 0) span.classList.add("up");
-    heading.appendChild(span);
+  heading.innerHTML = textArray[textIndex]; // insert HTML (renders colored spans)
 
-    // animate in sequence
+  // select all letters inside spans + text nodes
+  const chars = heading.querySelectorAll("span, span *");
+  const allNodes = [...heading.childNodes];
+
+  allNodes.forEach(node => {
+    if (node.nodeType === Node.TEXT_NODE) {
+      // for plain text
+      const fragment = document.createDocumentFragment();
+      node.textContent.split("").forEach((char, i) => {
+        const span = document.createElement("span");
+        span.textContent = char;
+        span.classList.add("char");
+        if (i % 2 !== 0) span.classList.add("up");
+        fragment.appendChild(span);
+      });
+      node.replaceWith(fragment);
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      // for colored spans
+      const words = node.textContent.split(" ");
+      node.textContent = "";
+      words.forEach((word, i) => {
+        // wrap each character in the word
+        word.split("").forEach((char, j) => {
+          const span = document.createElement("span");
+          span.textContent = char;
+          span.classList.add("char");
+          if (j % 2 !== 0) span.classList.add("up");
+          node.appendChild(span);
+        });
+  
+        // add a space after each word (visually)
+        if (i < words.length - 1) {
+          const space = document.createElement("span");
+          space.textContent = " ";
+          space.classList.add("char");
+          node.appendChild(space);
+        }
+      });
+    }
+  });
+
+  // animate in
+  const allChars = heading.querySelectorAll(".char");
+  allChars.forEach((span, i) => {
     setTimeout(() => {
       span.classList.add("show");
     }, i * 60);
   });
 
-  // next phrase after 4s
+  // fade out and move to next phrase
   setTimeout(() => {
-    // fade out
-    document.querySelectorAll(".char").forEach((span, i) => {
+    allChars.forEach((span, i) => {
       setTimeout(() => {
         span.classList.remove("show");
-      }, i * 30);
+      }, i * 25);
     });
-    // change text
+
     textIndex = (textIndex + 1) % textArray.length;
     setTimeout(animateText, 2000);
   }, 4000);
 }
 
 animateText();
+

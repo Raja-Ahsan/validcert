@@ -268,29 +268,19 @@ p {
 }
 
 .hero-banner {
-    background: linear-gradient(90deg, rgba(0, 10, 25, 0.73) 42.12%, rgba(0, 10, 25, 0) 90.9%), url('../images/hero-bg.png') no-repeat center/cover;
+    background: linear-gradient(90deg, rgba(0, 10, 25, 0.73) 42.12%, rgb(153 7 7 / 71%) 90.9%), url(../images/hero-bg.png) no-repeat center / cover;
     padding: var(--text-32) 0 29rem 0;
 }
 
-.animated-text {
-    text-align: center;
-    overflow: hidden;
-    display: inline-block;
-  }
-  
-  #animated-heading {
-    display: inline-block;
-    font-size: 48px;
-    font-weight: 700;
-    position: relative;
-    color: #222;
-  }
-  
-  .char {
+.hero-right-img-wrapper-banner{
+    animation: animate2 5s linear infinite;
+}
+
+.char {
     display: inline-block;
     opacity: 0;
     transform: translateY(80%);
-    transition: transform 0.6s ease, opacity 0.6s ease;
+    transition: transform 0.4s ease, opacity 0.4s ease;
   }
   
   .char.up {
@@ -298,9 +288,19 @@ p {
   }
   
   .char.show {
-    transform: translateY(0);
     opacity: 1;
+    transform: translateY(0);
   }
+  
+  .color-primary {
+    color: #fff !important;
+  }
+  
+  .color-accent {
+    color: var(--primary-theme);
+  }
+  
+  
   
 
 .sec-hd,
@@ -311,10 +311,10 @@ p {
 
 }
 
-.sec-hd span,
+/* .sec-hd span,
 .hero-banner h1 span {
     color: var(--primary-theme);
-}
+} */
 
 .hero-banner p {
     color: var(--default-color);
@@ -462,10 +462,11 @@ p {
 }
 
 .stats-left-img-wrapper::before {
-    top: -17px;
-    left: 20px;
+    top: 8px;
+    left: -20px !important;
     max-width: 530px;
-    background: url('../images/shape-01.png') no-repeat center/cover;
+    background: url(../images/shape-01.png) no-repeat center;
+    z-index: 999;
 }
 
 .para {
@@ -479,12 +480,15 @@ p {
 .services-card-item {
     padding: var(--text-14) var(--text-13) var(--text-0) var(--text-13);
     z-index: 1;
-    clip-path: polygon(100px 0, 100% 0, 100% 100%, 0 100%, 0 100px);
+    clip-path: polygon(98px 0, 100% 0, 100% 100%, 0 100%, 0 86px);
 
+}
+.hero-right-img{
+    clip-path: polygon(410px 0px, 95% 117px, 95% 94%, 141px 294px, -157px 0)
 }
 
 .services-card-wrapper .services-card-img {
-    clip-path: polygon(90px 0, 100% 0, 100% 100%, 0 100%, 0 90px)  
+    clip-path: polygon(96px 0, 100% 0, 100% 100%, 0 100%, 0 82px)  
 }
 
 .services-card-item:after {
@@ -800,7 +804,11 @@ p {
 .contact-us-shape,
 .stats-left-img-wrapper::before {
     animation: animate2 5s linear infinite;
+}
 
+.footer-bottom-wrapper {
+    background-color: var(--primary-theme);
+    padding: var(--text-20) 0;
 }
 
 @keyframes animate {
