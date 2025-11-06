@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /storage/
+Disallow: /vendor/
+Disallow: /api/
+
+# Sitemap
+Sitemap: http://localhost/validcert/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Allow specific bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
