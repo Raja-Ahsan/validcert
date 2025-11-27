@@ -3,7 +3,11 @@
         <div class="d-flex align-items-center justify-content-between">
             <div class="logo">
                 <a href="{{ route('home') }}">
-                    <img src="{{ \App\Models\Setting::get('site_logo') ? asset('storage/' . \App\Models\Setting::get('site_logo')) : asset('assets/images/logo.png') }}" alt="logo">
+                    @php
+                        $headerLogo = \App\Models\Setting::get('header_logo') ?? \App\Models\Setting::get('site_logo');
+                        $headerLogoUrl = $headerLogo ? (strpos($headerLogo, 'assets/') === 0 ? asset($headerLogo) : asset('storage/' . $headerLogo)) : asset('assets/images/logo.png');
+                    @endphp
+                    <img src="{{ $headerLogoUrl }}" alt="logo">
                 </a>
             </div>
             <nav class="primary-navs-wrapper">

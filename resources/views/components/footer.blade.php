@@ -3,7 +3,11 @@
         <div class="row justify-content-between">
             <div class="col-lg-5">
                 <div class="footer-logo-wrapper mb-30">
-                    <img src="{{ \App\Models\Setting::get('site_logo') ? asset('storage/' . \App\Models\Setting::get('site_logo')) : asset('assets/images/logo.png') }}" class="logo" alt="footer-logo">
+                    @php
+                        $footerLogo = \App\Models\Setting::get('footer_logo') ?? \App\Models\Setting::get('site_logo');
+                        $footerLogoUrl = $footerLogo ? (strpos($footerLogo, 'assets/') === 0 ? asset($footerLogo) : asset('storage/' . $footerLogo)) : asset('assets/images/logo.png');
+                    @endphp
+                    <img src="{{ $footerLogoUrl }}" class="logo" alt="footer-logo">
                 </div>
                 <p class="para fs-16 text-white mb-40" style="max-width: 380px;">
                     ValidCert is an industrial equipment company that provides a range of high-quality equipment,

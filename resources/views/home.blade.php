@@ -90,14 +90,14 @@
 @section('content')
 <section class="hero-banner">
     <div class="container">
-        <div class="row row-gap-30 mt-50">
+        <div class="row row-gap-30 mt-50 mb-150">
             <div class="col-lg-6 animated-text">
                 <h1 class="mb-20" id="animated-heading">
                     Trusted <span class="char">Training</span>,
                     <span class="char">Reliable</span> Support
                 </h1>
                 <p class="text-white mb-20">
-                    Delivering world-classÂ Training, Consultancy, Inspection & Engineering SupportÂ across Energy,
+                    Delivering world-class a Training, Consultancy, Inspection & Engineering Support a across Energy,
                     Industrial, and Construction sectors.
                 </p>
                 <a href="" class="btn btn-primary d-inline-flex align-items-center">Get Started <span
@@ -125,7 +125,7 @@
                     <div class="stats-content">
                         <h3 class="hd-sm mb-10">ISO Certified</h3>
                         <p class="stats-para">
-                            Quality and safety standards
+                            Quality & safety standards
                         </p>
                     </div>
                 </div>
@@ -137,9 +137,9 @@
                         <img src="{{ asset('assets/images/stats-02.png') }}" alt="stats-01">
                     </div>
                     <div class="stats-content">
-                        <h3 class="hd-sm mb-10">PEC Registered</h3>
+                        <h3 class="hd-sm mb-10">ISO/IEC 17020</h3>
                         <p class="stats-para">
-                            Government Recognized
+                            Inspection & Testing Standard
                         </p>
                     </div>
                 </div>
@@ -194,15 +194,15 @@
                     Internationally Certified Excellence in <span>Industrial Services </span>
                 </h2>
                 <p class="fs-20 para">
-                    Established in 2025, VALIDCERT is an internationally certified company providing comprehensive
-                    solutions inÂ Training, Consultancy, Inspection, Procurement, and Engineering Support.
-
+                    Established in 2025, <b>VALIDCERT</b> is an internationally accredited organization offering integrated Training, Consultancy, Inspection, Procurement, and Engineering Support services.
                 </p>
                 <p class="fs-20 para">
-                    Registered with the Pakistan Engineering Council (PEC) and ISO 9001 certified, we serve
-                    theÂ Energy, Industrial, and Construction sectorsÂ while empowering individuals through globally
-                    recognized certifications.
-                </p>
+                <b>VALIDCERT</b> holds ISO/IEC 17020 accreditation and ISO 9001 certification, underscoring our commitment to excellence, technical competence, and ethical business practices. We cater to the Energy, Industrial, and Construction sectors, delivering reliable, safe, and fully compliant solutions designed to meet the evolving needs of our clients.</p>
+                <div class="mt-30">
+                    <a href="{{ route('about') }}" class="btn btn-primary d-inline-flex align-items-center">
+                        Read More <span class="arrow-icon d-flex ms-2"><i class="fa-solid fa-angle-right"></i></span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -278,8 +278,8 @@
                         </div>
                         <div class="core-values-card-content">
                             <h3 class="hd-sm mb-10 text-black">Integrity</h3>
-                            <p class="para fs-24 text-black" style="max-width: 290px;">
-                                Transparent and ethical practices
+                            <p class="para fs-20 text-black" style="max-width: 290px;">
+                                Transparent and ethical business practices
                             </p>
                         </div>
                     </div>
@@ -290,12 +290,12 @@
                     <div class="d-flex align-items-center gap-20">
                         <div class="core-values-img-wrapper">
                             <img src="{{ asset('assets/images/core-values-02.png') }}" class="w-100 core-values-card-img"
-                                alt="core-values-01">
+                                alt="core-values-02">
                         </div>
                         <div class="core-values-card-content">
                             <h3 class="hd-sm mb-10 text-black">Quality</h3>
-                            <p class="para fs-24 text-black" style="max-width: 290px;">
-                                International standard services
+                            <p class="para fs-20 text-black" style="max-width: 290px;">
+                                Delivering services that meet international standards
                             </p>
                         </div>
                     </div>
@@ -306,12 +306,12 @@
                     <div class="d-flex align-items-center gap-20">
                         <div class="core-values-img-wrapper">
                             <img src="{{ asset('assets/images/core-values-03.png') }}" class="w-100 core-values-card-img"
-                                alt="core-values-01">
+                                alt="core-values-03">
                         </div>
                         <div class="core-values-card-content">
                             <h3 class="hd-sm mb-10 text-black">Safety</h3>
-                            <p class="para fs-24 text-black" style="max-width: 290px;">
-                                Safe working environment
+                            <p class="para fs-20 text-black" style="max-width: 290px;">
+                                Ensuring a safe working environment at all levels
                             </p>
                         </div>
                     </div>
@@ -322,12 +322,28 @@
                     <div class="d-flex align-items-center gap-20">
                         <div class="core-values-img-wrapper">
                             <img src="{{ asset('assets/images/core-values-04.png') }}" class="w-100 core-values-card-img"
-                                alt="core-values-01">
+                                alt="core-values-04">
                         </div>
                         <div class="core-values-card-content">
-                            <h3 class="hd-sm mb-10 text-black">Client Focus</h3>
-                            <p class="para fs-24 text-black" style="max-width: 290px;">
-                                Long-term partnerships
+                            <h3 class="hd-sm mb-10 text-black">Client Satisfaction</h3>
+                            <p class="para fs-20 text-black" style="max-width: 290px;">
+                                Building long-term partnerships through trust and reliability
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="stats-card-item-sec core-values-card-item">
+                    <div class="d-flex align-items-center gap-20">
+                        <div class="core-values-img-wrapper">
+                            <img src="{{ asset('assets/images/core-values-01.png') }}" class="w-100 core-values-card-img"
+                                alt="core-values-05">
+                        </div>
+                        <div class="core-values-card-content">
+                            <h3 class="hd-sm mb-10 text-black">Innovation</h3>
+                            <p class="para fs-20 text-black" style="max-width: 290px;">
+                                Continuously improving through modern solutions
                             </p>
                         </div>
                     </div>
@@ -363,7 +379,7 @@
                 <div class="testimonials-card-item">
                     <div class="quote left-quote"><i class="fa-solid fa-quote-left"></i></div>
                     <p class="para text-black fs-20">
-                        VALIDCERTâ€™s HSE training programs were exactly what our field teams needed. The instructors were industry veterans who combined real-world experience with international best practices. Weâ€™ve seen a noticeable improvement in our safety culture and compliance.
+                        VALIDCERT's HSE training programs were exactly what our field teams needed. The instructors were industry veterans who combined real-world experience with international best practices. We've seen a noticeable improvement in our safety culture and compliance.
                     </p>
                     <div class="quote right-quote text-end"><i class="fa-solid fa-quote-right"></i></div>
                     <div class="d-flex tes-profile-wrapper align-items-center gap-20">
@@ -401,9 +417,9 @@
                 <div class="testimonials-card-item">
                     <div class="quote left-quote"><i class="fa-solid fa-quote-left"></i></div>
                     <p class="para text-black fs-20">
-                        VALIDCERTâ€™s HSE training programs were exactly what our field teams needed. The
+                        VALIDCERT's HSE training programs were exactly what our field teams needed. The
                         instructors were industry veterans who combined real-world experience with international
-                        best practices. Weâ€™ve seen a noticeable improvement in our safety culture and
+                        best practices. We've seen a noticeable improvement in our safety culture and
                         compliance.
                     </p>
                     <div class="quote right-quote text-end"><i class="fa-solid fa-quote-right"></i></div>

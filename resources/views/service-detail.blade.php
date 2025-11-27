@@ -56,15 +56,15 @@
 
 @section('content')
 <!-- Services Hero Banner -->
-<section class="hero-banner inner-banner">
+<section class="hero-banner inner-banner service-detail-banner" style="background-image: linear-gradient(135deg, rgba(0, 10, 25, 0.75) 0%, rgba(153, 7, 7, 0.65) 100%), url('{{ $service->image ? asset($service->image) : asset('assets/images/Training.webp') }}');">
     <div class="container">
         <div class="row row-gap-30 mt-50">
             <div class="col-lg-12 text-center">
                 <h1 class="mb-20">
-                    Service <span class="text-primary-theme">Detail</span>
+                    <span class="text-primary-theme">{{ $service->title }}</span>
                 </h1>
                 <p class="text-white mb-20">
-                    Comprehensive solutions in Training, Consultancy, Inspection, Procurement, and Engineering Support
+                    {{ $service->short_description ?? 'Comprehensive solutions in Training, Consultancy, Inspection, Procurement, and Engineering Support' }}
                 </p>
             </div>
         </div>
@@ -75,18 +75,10 @@
         <div class="row row-gap-30 justify-content-between">
             <div class="col-lg-6">
                 <div class="services-detail-card-wrap">
-                    @if($service->image)
-                    <div class="sd-img-wrapper mb-20">
-                        <img src="{{ asset($service->image) }}" alt="{{ $service->title }}">
-                    </div>
-                    @endif
+                    
                     <div class="sd-content-wrapper">
                         <h3 class="sec-hd mb-10 text-primary-theme">{{ $service->title }}</h3>
-                        @if($service->short_description)
-                        <p class="para mb-20">
-                            {{ $service->short_description }}
-                        </p>
-                        @endif
+                        
                         @if($service->description)
                         <div class="para mb-20">
                             {!! $service->description !!}

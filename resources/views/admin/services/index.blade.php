@@ -53,7 +53,7 @@
                             <td>{{ $service->title }}</td>
                             <td>
                                 @if($service->image)
-                                    <img src="{{ asset($service->image) }}" alt="{{ $service->title }}" style="width: 50px; height: 50px; object-fit: cover;">
+                                    <img src="{{ asset($service->image) }}?v={{ $service->updated_at->timestamp }}" alt="{{ $service->title }}" style="width: 50px; height: 50px; object-fit: cover;">
                                 @else
                                     <span class="text-muted">No image</span>
                                 @endif

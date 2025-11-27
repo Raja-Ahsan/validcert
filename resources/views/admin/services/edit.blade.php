@@ -41,7 +41,7 @@
                         <div class="mb-3">
                             <label class="form-label">Current Image</label>
                             <div>
-                                <img src="{{ asset($service->image) }}" alt="{{ $service->title }}" class="img-thumbnail" style="max-width: 200px;">
+                                <img src="{{ asset($service->image) }}?v={{ $service->updated_at->timestamp }}" alt="{{ $service->title }}" class="img-thumbnail" style="max-width: 200px;">
                             </div>
                         </div>
                     @endif

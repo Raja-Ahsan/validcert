@@ -7,7 +7,7 @@
     
     <!-- Favicon -->
     @if(\App\Models\Setting::get('site_favicon'))
-        <link rel="icon" type="image/png" href="{{ asset('storage/' . \App\Models\Setting::get('site_favicon')) }}">
+        <link rel="icon" type="image/png" href="{{ strpos(\App\Models\Setting::get('site_favicon'), 'assets/') === 0 ? asset(\App\Models\Setting::get('site_favicon')) : asset('storage/' . \App\Models\Setting::get('site_favicon')) }}">
     @endif
     
     <!-- Primary Meta Tags -->

@@ -25,22 +25,35 @@
                 </div>
 
                 <div class="row mb-3">
-                    <div class="col-md-6">
-                        <label for="site_logo" class="form-label">Site Logo</label>
-                        <input type="file" class="form-control" id="site_logo" name="site_logo" accept="image/*">
-                        @if(isset($settings['site_logo']) && $settings['site_logo'])
+                    <div class="col-md-4">
+                        <label for="header_logo" class="form-label">Header Logo</label>
+                        <input type="file" class="form-control" id="header_logo" name="header_logo" accept="image/*">
+                        @php
+                            $headerLogo = $settings['header_logo'] ?? ($settings['site_logo'] ?? null);
+                        @endphp
+                        @if($headerLogo)
                             <div class="mt-2">
-                                <img src="{{ asset('storage/' . $settings['site_logo']) }}" alt="Logo" style="max-height: 100px;">
-                                <p class="text-muted small mt-1">Current Logo</p>
+                                <img src="{{ strpos($headerLogo, 'assets/') === 0 ? asset($headerLogo) : asset('storage/' . $headerLogo) }}?v={{ time() }}" alt="Header Logo" style="max-height: 100px;">
+                                <p class="text-muted small mt-1">Current Header Logo</p>
                             </div>
                         @endif
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
+                        <label for="footer_logo" class="form-label">Footer Logo</label>
+                        <input type="file" class="form-control" id="footer_logo" name="footer_logo" accept="image/*">
+                        @if(isset($settings['footer_logo']) && $settings['footer_logo'])
+                            <div class="mt-2">
+                                <img src="{{ strpos($settings['footer_logo'], 'assets/') === 0 ? asset($settings['footer_logo']) : asset('storage/' . $settings['footer_logo']) }}?v={{ time() }}" alt="Footer Logo" style="max-height: 100px;">
+                                <p class="text-muted small mt-1">Current Footer Logo</p>
+                            </div>
+                        @endif
+                    </div>
+                    <div class="col-md-4">
                         <label for="site_favicon" class="form-label">Favicon</label>
                         <input type="file" class="form-control" id="site_favicon" name="site_favicon" accept="image/*">
                         @if(isset($settings['site_favicon']) && $settings['site_favicon'])
                             <div class="mt-2">
-                                <img src="{{ asset('storage/' . $settings['site_favicon']) }}" alt="Favicon" style="max-height: 32px;">
+                                <img src="{{ strpos($settings['site_favicon'], 'assets/') === 0 ? asset($settings['site_favicon']) : asset('storage/' . $settings['site_favicon']) }}?v={{ time() }}" alt="Favicon" style="max-height: 32px;">
                                 <p class="text-muted small mt-1">Current Favicon</p>
                             </div>
                         @endif

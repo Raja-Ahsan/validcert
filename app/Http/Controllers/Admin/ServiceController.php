@@ -63,8 +63,8 @@ class ServiceController extends Controller
 
         // Handle image upload
         if ($request->hasFile('image')) {
-            // Create directory if it doesn't exist
-            $uploadPath = public_path('assets/images/services');
+            // Create directory if it doesn't exist (root/assets/images/services)
+            $uploadPath = base_path('assets/images/services');
             if (!file_exists($uploadPath)) {
                 mkdir($uploadPath, 0755, true);
             }
@@ -99,15 +99,26 @@ class ServiceController extends Controller
             'form_fields' => 'nullable|array',
         ]);
 
+        // Handle is_active checkbox (if not sent, set to false)
+        $validated['is_active'] = $request->has('is_active') ? (bool)$request->input('is_active') : false;
+
         // Handle image upload
         if ($request->hasFile('image')) {
-            // Delete old image if exists
-            if ($service->image && file_exists(public_path($service->image))) {
-                unlink(public_path($service->image));
+            // Delete old image if exists (check both public and root paths)
+            if ($service->image) {
+                $oldPathPublic = public_path($service->image);
+                $oldPathRoot = base_path($service->image);
+                
+                if (file_exists($oldPathPublic)) {
+                    unlink($oldPathPublic);
+                }
+                if (file_exists($oldPathRoot)) {
+                    unlink($oldPathRoot);
+                }
             }
             
-            // Create directory if it doesn't exist
-            $uploadPath = public_path('assets/images/services');
+            // Create directory if it doesn't exist (root/assets/images/services)
+            $uploadPath = base_path('assets/images/services');
             if (!file_exists($uploadPath)) {
                 mkdir($uploadPath, 0755, true);
             }
@@ -119,16 +130,27 @@ class ServiceController extends Controller
         }
 
         $service->update($validated);
+        
+        // Refresh the model to ensure we have the latest data
+        $service->refresh();
 
-        return redirect()->route('admin.services.index')
+        return redirect()->route('admin.services.edit', $service)
             ->with('success', 'Service updated successfully!');
     }
 
     public function destroy(Service $service)
     {
-        // Delete image if exists
-        if ($service->image && file_exists(public_path($service->image))) {
-            unlink(public_path($service->image));
+        // Delete image if exists (check both public and root paths)
+        if ($service->image) {
+            $oldPathPublic = public_path($service->image);
+            $oldPathRoot = base_path($service->image);
+            
+            if (file_exists($oldPathPublic)) {
+                unlink($oldPathPublic);
+            }
+            if (file_exists($oldPathRoot)) {
+                unlink($oldPathRoot);
+            }
         }
 
         $service->delete();

@@ -187,7 +187,7 @@ body {
 
 body {
     color: var(--light-black);
-    font-size: var(--text-16);
+    font-size: var(--text-20);
     font-family: var(--primary-font);
 }
 
@@ -267,7 +267,7 @@ p {
 
 .hero-banner {
     background: linear-gradient(90deg, rgba(0, 10, 25, 0.73) 42.12%, rgb(153 7 7 / 71%) 90.9%), url(../images/hero-bg.png) no-repeat center / cover;
-    padding: var(--text-32) 0 29rem 0;
+    padding: var(--text-32) 0 5rem 0;
 }
 
 .hero-right-img-wrapper-banner {
@@ -963,6 +963,84 @@ p {
 
 .inner-banner {
     padding: 10rem 0;
+}
+
+.about-page-banner {
+    background: linear-gradient(135deg, rgba(0, 10, 25, 0.75) 0%, rgba(153, 7, 7, 0.65) 100%), url('../images/about-us.webp') no-repeat center center / cover;
+    position: relative;
+}
+
+.about-page-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(0, 10, 25, 0.4) 0%, rgba(0, 10, 25, 0.6) 100%);
+    z-index: 0;
+}
+
+.about-page-banner .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Service Detail Banner Styles */
+.service-detail-banner {
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    position: relative;
+}
+
+.service-detail-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(0, 10, 25, 0.4) 0%, rgba(0, 10, 25, 0.6) 100%);
+    z-index: 0;
+}
+
+.service-detail-banner .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* About Section Styles */
+.about-content-wrapper {
+    max-width: 100%;
+}
+
+.about-text-content {
+    text-align: left;
+}
+
+.about-text-content .sec-hd {
+    text-align: center;
+    margin-bottom: var(--text-30);
+}
+
+.about-text-content .para {
+    color: var(--default-color);
+    font-size: var(--text-18);
+    line-height: 1.8;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .about-text-content .para {
+        text-align: left;
+        font-size: var(--text-16);
+    }
+    
+    .about-page-banner {
+        background-size: cover;
+        background-position: center;
+    }
 }
 
 .sd-img-wrapper img {
