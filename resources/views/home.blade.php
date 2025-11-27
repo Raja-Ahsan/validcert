@@ -116,20 +116,7 @@
 <section id="about" class="stats-sec sec-gradiant pb-65">
     <div class="container">
         <div class="row row-gap-30">
-            <div class="col-lg-3 col-md-6">
-                <div
-                    class="stats-card-item d-flex flex-column align-items-center justify-content-center text-center">
-                    <div class="stats-img-wrapper mb-20">
-                        <img src="{{ asset('assets/images/stats-01.png') }}" alt="stats-01">
-                    </div>
-                    <div class="stats-content">
-                        <h3 class="hd-sm mb-10">ISO Certified</h3>
-                        <p class="stats-para">
-                            Quality & safety standards
-                        </p>
-                    </div>
-                </div>
-            </div>
+            
             <div class="col-lg-3 col-md-6">
                 <div
                     class="stats-card-item d-flex flex-column align-items-center justify-content-center text-center">
@@ -140,6 +127,20 @@
                         <h3 class="hd-sm mb-10">ISO/IEC 17020</h3>
                         <p class="stats-para">
                             Inspection & Testing Standard
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div
+                    class="stats-card-item d-flex flex-column align-items-center justify-content-center text-center">
+                    <div class="stats-img-wrapper mb-20">
+                        <img src="{{ asset('assets/images/stats-01.png') }}" alt="stats-01">
+                    </div>
+                    <div class="stats-content">
+                        <h3 class="hd-sm mb-10">ISO Certified</h3>
+                        <p class="stats-para">
+                            Quality & safety standards
                         </p>
                     </div>
                 </div>
